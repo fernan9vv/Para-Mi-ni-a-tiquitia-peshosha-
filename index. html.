@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para mi Amor</title>
+    <style>
+        body {
+            background-color: #fce4ec;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #ad1457;
+            text-align: center;
+        }
+
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            max-width: 400px;
+            width: 85%;
+            border: 2px solid #f8bbd0;
+        }
+
+        .heart-tree {
+            font-size: 80px;
+            margin-bottom: 20px;
+            animation: flotar 3s ease-in-out infinite;
+        }
+
+        h1 {
+            font-size: 26px;
+            margin-bottom: 15px;
+            color: #880e4f;
+        }
+
+        p {
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        #contador {
+            font-size: 18px;
+            background-color: #f8bbd0;
+            padding: 15px;
+            border-radius: 15px;
+            margin-top: 25px;
+            color: #4a148c;
+        }
+
+        @keyframes flotar {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="heart-tree">🌳💖</div> 
+        
+        <h1>Para el amor de mi vida</h1>
+        <p>Si pudiera elegir un lugar seguro, sería a tu lado.</p>
+        <p>Cuanto más tiempo estoy contigo, más te amo.</p>
+        
+        <div id="contador">Calculando...</div>
+    </div>
+
+    <script>
+        // --- AÑO, MES (0-11), DÍA, HORA, MINUTOS ---
+        const fechaInicio = new Date(2024, 1, 14, 10, 0, 0); 
+
+        function actualizarContador() {
+            const ahora = new Date();
+            const diferencia = ahora - fechaInicio;
+
+            const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+            const horas = Math.floor((diferencia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutos = Math.floor((diferencia % (1000 * 60 * 60)) / (1000 * 60));
+            const segundos = Math.floor((diferencia % (1000 * 60)) / 1000);
+
+            document.getElementById("contador").innerHTML = 
+                `Llevamos juntos:<br><strong>${dias}</strong> días, <strong>${horas}</strong> horas, <strong>${minutos}</strong> min y <strong>${segundos}</strong> seg.`;
+        }
+
+        setInterval(actualizarContador, 1000);
+        actualizarContador();
+    </script>
+</body>
+</html>
